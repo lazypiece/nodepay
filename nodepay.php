@@ -3,6 +3,13 @@
 
 system("clear");
 while(true){
+
+
+  $sesi = "";
+  $cf = "";
+  $id = "";
+  $auth = "";
+  
 $curl = curl_init();
 
 curl_setopt_array($curl, [
@@ -11,10 +18,10 @@ curl_setopt_array($curl, [
   CURLOPT_ENCODING => '',
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_COOKIE => '__cf_bm=; JSESSIONID=',
+  CURLOPT_COOKIE => '__cf_bm=$cf; JSESSIONID=$sesi',
   CURLOPT_HTTPHEADER => [
     'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
-    'authorization: Bearer ',
+    'authorization: Bearer '.$auth,
     'content-type: application/json',
     'origin: chrome-extension://lgmpfmgeabnnlemejacfljbmonaomfmm',
     'accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
@@ -64,12 +71,12 @@ curl_setopt_array($curl, [
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => '{"id":"","browser_id":"1b602cdd-9210-49f7-abe3-3e3507a92727","timestamp":1732156222,"version":"2.2.7"}',
+  CURLOPT_POSTFIELDS => '{"id":"$id","browser_id":"1b602cdd-9210-49f7-abe3-3e3507a92727","timestamp":1732156222,"version":"2.2.7"}',
   CURLOPT_COOKIE => '__cf_bm=',
   CURLOPT_HTTPHEADER => [
     'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
     'Content-Type: application/json',
-    'authorization: Bearer ',
+    'authorization: Bearer '.$auth,
     'origin: chrome-extension://lgmpfmgeabnnlemejacfljbmonaomfmm',
     'accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
   ],
@@ -101,11 +108,11 @@ curl_setopt_array($curl, [
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => '{"mission_id":"1"}',
-  CURLOPT_COOKIE => '__cf_bm=',
+  CURLOPT_COOKIE => '__cf_bm='.$cf,
   CURLOPT_HTTPHEADER => [
     'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
     'Content-Type: application/json',
-    'authorization: Bearer ',
+    'authorization: Bearer '.$auth,
     'origin: https://app.nodepay.ai',
     'referer: https://app.nodepay.ai/',
     'accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
